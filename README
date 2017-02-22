@@ -1,0 +1,107 @@
+For this task I am assuming that this only relates to the 
+lab entries and does not take into lab entries assigned to particular users.
+
+A simple database structure was designed with the key information which was to 
+stored and a REST API designed based on on operations that would be carried out(CRUD).
+
+ I have assumed that a number of different lab entries would be added in and the word search
+for similar and identical words was updated to report back on the position of the word(s)
+based on the entry id and the position in the entry data. The entry data was stored as a String
+array for simplicity with the array positions returned for identical and similar words in a
+map which shows the lab entry it was assigned to and the position in that entry.
+
+End points have been given below.
+
+to run
+run from command mvn spring-boot:run
+
+
+
+
+=Data=
+
+Lab entry
+
+-Lab entry id
+
+-Lab entry name
+
+-lab entry data
+
+
+
+
+
+REST API
+
+=Create=
+
+-lab entries
+
+
+
+=Read=
+
+-Lab entries
+
+--Lab entry list
+
+-Lab entry contents by id
+
+
+
+=Update=
+
+-lab entry contents
+
+-lab entry names
+
+
+=Delete=
+
+-Lab entry by id
+
+API Endpoints
+
+GET
+/notes
+Returns all lab entries entered in
+
+/notes/{note_id}
+Returns a particular lab entry entered in
+
+/notesNames
+Returns all names of lab entries assigned
+
+/notesNames/{note_id}
+Returns the name of a particular note_id
+
+
+/getSimilar/{comp_word}
+{comp_word} : String
+Returns a map of all lab entries with 2 lists with the array positions of words which are similar and are the same.
+
+
+
+PUT
+/notes/{note_id}/{note_contents}
+{note_id} : Integer
+{note_contents} : String array
+Updates/creates lab entry with note_id and note contents
+
+
+
+/notesNames/{note_id}/{note_name}
+{note_id} : Integer
+{note_name} : String
+Updates/creates note name assigned to a certain note id
+
+
+DELETE
+/notes/{note_id}
+{note_id} : Integer
+Deletes note entry specified by id
+
+
+
+
